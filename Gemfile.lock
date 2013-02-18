@@ -42,8 +42,18 @@ GEM
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
+<<<<<<< HEAD
+    haml (4.0.0)
+      tilt
+    haml-rails (0.4)
+      actionpack (>= 3.1, < 4.1)
+      activesupport (>= 3.1, < 4.1)
+      haml (>= 3.1, < 4.1)
+      railties (>= 3.1, < 4.1)
+=======
     font-awesome-rails (3.0.2.0)
       railties (>= 3.1)
+>>>>>>> 6308244cdd5d6899ed3b154790f7f45b671caae8
     hike (1.2.1)
     i18n (0.6.1)
     journey (1.0.4)
@@ -110,7 +120,11 @@ PLATFORMS
 DEPENDENCIES
   bootstrap-rails
   coffee-rails (~> 3.2.1)
+<<<<<<< HEAD
+  haml-rails
+=======
   font-awesome-rails
+>>>>>>> 6308244cdd5d6899ed3b154790f7f45b671caae8
   jquery-rails
   rails (= 3.2.11)
   sass-rails (~> 3.2.3)

@@ -5,13 +5,15 @@ gem 'rails', '3.2.11'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
+# db
 gem 'sqlite3'
 
+# authentication system
+gem 'devise'
 
+# template engine and styles
 gem 'haml-rails'
-
 gem 'font-awesome-rails'
-
 gem 'bootstrap-rails'
 
 # Gems used only for assets and not required

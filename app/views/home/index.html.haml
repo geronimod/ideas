@@ -1,5 +1,5 @@
 .jumbotron
-  %i.icon-lightbulb.icon-large
+  %i.icon-lightbulb.icon-large.idea
   
   %h2 Do you have an idea ?
   %h1 Share it with us !
@@ -16,10 +16,10 @@
     .hrd
 
     %h2 Recent ideas
-    %table.recent-ideas.span12
+    %ul.recent-ideas.icons
       - @recent_ideas.each do |idea|
-        %tr
-          %td= truncate idea.content
-          %td
-            by
-            = idea.user.email
+        %li
+          %i.icon-lightbulb
+          = "« " + truncate(idea.content, length: 50) + " »"
+          by
+          = idea.user.email

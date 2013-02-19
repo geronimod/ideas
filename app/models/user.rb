@@ -10,4 +10,6 @@ class User < ActiveRecord::Base
   # attr_accessible :title, :body
 
   has_many :ideas
+
+   acts_as_taggable
 end

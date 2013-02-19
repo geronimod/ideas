@@ -5,13 +5,18 @@
 
 .jumbotron {
   text-align: center;
-
+  //color: #333;
+  
   h1 {
     font-size: 72px;
     line-height: 1;
     margin: 20px auto 40px auto;
   }
 
+  i {
+    color: rgb(231, 231, 139);
+    text-shadow: 2px 2px 2px black;
+  }
   .icon-large {
     font-size: 11em
   }

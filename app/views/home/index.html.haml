@@ -1,13 +1,25 @@
 .jumbotron
-  %i.icon-lightbulb.icon-large
+  %i.icon-lightbulb.icon-large.idea
   
   %h2 Do you have an idea ?
   %h1 Share it with us !
 
-  %a.btn.btn-large.btn-info{ href: new_user_session_path }
+  %a.btn.btn-large.btn-alpha{ href: new_user_session_path }
     %i.icon-signin.icon-2x.pull-left
       Sign In
 
-  %a.btn.btn-large.btn-success{ href: new_user_registration_path }
+  %a.btn.btn-large.btn-lightbulb{ href: new_user_registration_path }
     %i.icon-user.icon-2x.pull-left
       Sign Up
+
+  - if @recent_ideas.any?
+    .hrd
+
+    %h2 Recent ideas
+    %ul.recent-ideas.icons
+      - @recent_ideas.each do |idea|
+        %li
+          %i.icon-lightbulb
+          = "« " + truncate(idea.content, length: 50) + " »"
+          by
+          = idea.user.email

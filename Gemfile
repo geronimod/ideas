@@ -17,6 +17,7 @@ gem 'font-awesome-rails'
 # gem "therubyracer"
 gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
 gem "twitter-bootstrap-rails"
+gem 'acts-as-taggable-on', '~> 2.3.1'
 
 # Gems used only for assets and not required
 # in production environments by default.

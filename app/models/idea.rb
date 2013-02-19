@@ -1,3 +1,3 @@
 class Idea < ActiveRecord::Base
-  attr_accessible :idea, :references
+  attr_accessible :content
 end

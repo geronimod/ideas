@@ -18,7 +18,7 @@
     line-height: 1;
   }
 
-  i {
+  .icon-lightbulb {
     color: rgb(231, 231, 139);
     text-shadow: 2px 2px 2px black;
   }
@@ -31,4 +31,13 @@
   p {
     text-align: center;
   }
+}
+
+.btn-ligthbulb {
+  background-color: #e7e78b
+}
+
+.muted a {
+  text-decoration: none;
+  color: #999
 }

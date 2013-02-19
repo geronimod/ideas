@@ -11,15 +11,20 @@
 
       .masthead
         %ul.nav.nav-pills.pull-right
-          %li
-            = link_to "Signup", new_user_registration_path
+          - if current_user
+            %li
+              = link_to "Sign out", destroy_user_session_path, method: :delete
+          - else  
+            %li= link_to "Sign in", new_user_session_path
+            %li= link_to "Sign up", new_user_registration_path
         
         %h3.muted
-          ideas
+          =link_to 'ideas', root_path
 
       %hr
       
-      = yield
+      .row-fluid
+        = yield
 
       %hr
 

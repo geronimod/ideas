@@ -5,8 +5,8 @@
 
 .jumbotron {
   text-align: center;
-  //color: #333;
-  
+  margin-bottom: 20px;
+
   h1 {
     font-size: 5em;
     line-height: 1;
@@ -19,9 +19,19 @@
   }
 
   .icon-lightbulb {
-    color: rgb(231, 231, 139);
+    color: #666;
     text-shadow: 2px 2px 2px black;
+
+    &:hover {
+        color: rgb(231, 231, 139);  
+        -webkit-transition: color 500ms linear;
+        -moz-transition: color 500ms linear;
+        -o-transition: color 500ms linear;
+        -ms-transition: color 500ms linear;
+        transition: color 500ms linear;
+    }
   }
+
   .icon-large {
     font-size: 11em
   }
@@ -75,3 +85,37 @@
 a.btn-alpha {
   margin-right: 10px
 }
+
+.hrd {
+  display: block;
+  margin: 40px 0;
+  border: 0;
+  border-top: 1px solid rgb(192, 192, 192);
+  border-bottom: 1px solid rgb(192, 192, 192);
+  height: 1px;
+}
+
+@keyframes resize {
+  0% {
+    padding: 0;
+  }
+  50% {
+    padding: 0 20px;
+    background-color:rgba(255,0,0,0.2);
+  }
+  100% {
+    padding: 0 100px;
+    background-color:rgba(255,0,0,0.9);
+  }
+}
+
+.recent-ideas {
+  margin-top: 20px;
+  
+  ul {
+    list-style: none;
+    text-align: left;
+  }
+
+}
+

@@ -11,3 +11,15 @@
   %a.btn.btn-large.btn-lightbulb{ href: new_user_registration_path }
     %i.icon-user.icon-2x.pull-left
       Sign Up
+
+  - if @recent_ideas.any?
+    .hrd
+
+    %h2 Recent ideas
+    %table.recent-ideas.span12
+      - @recent_ideas.each do |idea|
+        %tr
+          %td= truncate idea.content
+          %td
+            by
+            = idea.user.email

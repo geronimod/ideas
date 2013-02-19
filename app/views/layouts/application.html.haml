@@ -1,30 +1,30 @@
-<!DOCTYPE html>
+!!! 5
 %html
-%head
-  %title Ideas
-  = stylesheet_link_tag    "application", :media => "all"
-  = javascript_include_tag "application"
-  = csrf_meta_tags
-%body
+  %head
+    %title Ideas
+    = stylesheet_link_tag    "application", :media => "all"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+  %body
 
-  .container-narrow
+    .container-narrow
 
-    .masthead
-      %ul.nav.nav-pills.pull-right
-        %li
-          %a(href="/signup") Signup
+      .masthead
+        %ul.nav.nav-pills.pull-right
+          %li
+            %a(href="/signup") Signup
+        
+        %h3.muted
+          ideas
+
+      %hr
       
-      %h3.muted
-        ideas
+      .jumbotron
+        %i.icon-lightbulb.icon-large
+        %h1 Enter your fucking idea !!!
 
-    %hr
-    
-    .jumbotron
-      %i.icon-lightbulb.icon-large
-      %h1 Enter your fucking idea !!!
+      =# yield
 
-    = yield
-
-    .footer
-      %p © Company 2013
+      .footer
+        %p © ideas 2013
 

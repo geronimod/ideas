@@ -8,7 +8,6 @@
   %body
 
     .container-narrow
-
       .masthead
         %ul.nav.nav-pills.pull-right
           - if current_user
@@ -24,6 +23,7 @@
       %hr
       
       .row-fluid
+        = render 'layouts/flash'
         = yield
 
       %hr

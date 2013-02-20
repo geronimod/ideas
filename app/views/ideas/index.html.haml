@@ -1,19 +1,17 @@
-%h1 Listing ideas
+%h1 Your ideas
 
-%table
+%table.table.table-hover.table-striped
   %tr
     %th Content
-    %th
-    %th
     %th
 
   - @ideas.each do |idea|
     %tr
-      %td= idea.content
-      %td= link_to 'Show', idea
-      %td= link_to 'Edit', edit_idea_path(idea)
-      %td= link_to 'Destroy', idea, method: :delete, data: { confirm: 'Are you sure?' }
+      %td= truncate idea.content, length: 50
+      %td
+        = link_to '<i class="icon-trash"></i>'.html_safe, idea, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger pull-right'
+        = link_to '<i class="icon-edit"></i>'.html_safe, edit_idea_path(idea), class: 'btn pull-right', style: 'margin-right: 5px'
 
 %br
 
-= link_to 'New Idea', new_idea_path
+= link_to 'Share a new one', new_idea_path

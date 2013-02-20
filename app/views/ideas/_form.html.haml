@@ -1,3 +1,5 @@
+%h1 Content
+
 = form_for(@idea) do |f|
   - if @idea.errors.any?
     #error_explanation
@@ -11,9 +13,7 @@
        
 
   .field
-    = f.label :content
-    %br
-    = f.text_area :content 
+    = f.text_area :content, rows: 7
   
   .actions
     = f.submit 

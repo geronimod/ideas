@@ -5,10 +5,13 @@ class IdeasController < ApplicationController
   before_filter :login_required
 
   #Authentication
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, except: "all"
+    
+  #loading @ideas
+  before_filter :load_resource 
   
   #Authorization
-  load_and_authorize_resource
+  load_and_authorize_resource except: "all"
   
   def index
     if params[:tag]
@@ -16,6 +19,9 @@ class IdeasController < ApplicationController
     else
       @ideas = current_user.ideas.all
     end
+    #debugger
+    #@ideas = current_user.ideas
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @ideas }
@@ -93,4 +99,19 @@ class IdeasController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  
+  def all
+    @ideas=Idea.all
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @ideas }
+    end
+  end
+  
+  private
+  def load_resource
+    @ideas = current_user.ideas if current_user
+  end
+  
 end

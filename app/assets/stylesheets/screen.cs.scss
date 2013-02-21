@@ -108,3 +108,15 @@ a.btn-alpha {
 textarea {
   width: 100%
 }
+
+.error_explanation {
+  h2 {
+    font-size: 1.8em
+  }
+
+  ul {
+    color: #333;
+    padding-left: 10px;
+    list-style: none
+  }
+}

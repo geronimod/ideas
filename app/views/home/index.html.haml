@@ -4,7 +4,16 @@
   %h2 Do you have an idea ?
   %h1 Share it with us !
 
-  - unless current_user
+  - if current_user
+    %a.btn.btn-large.btn-info{ href: new_idea_path }
+      %i.icon-lightbulb.icon-2x.pull-left
+        New idea
+
+    %a.btn.btn-large.btn-success{ href: ideas_path }
+      %i.icon-list.icon-2x.pull-left
+        My ideas
+
+  - else 
     %a.btn.btn-large.btn-alpha{ href: new_user_session_path }
       %i.icon-signin.icon-2x.pull-left
         Sign In

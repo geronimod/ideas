@@ -24,3 +24,5 @@
           = "« " + truncate(idea.content, length: 50) + " »"
           by
           = idea.user.email
+      %li 
+        =link_to "Show all",  all_ideas_path

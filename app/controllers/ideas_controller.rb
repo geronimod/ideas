@@ -1,8 +1,11 @@
 class IdeasController < ApplicationController
   # GET /ideas
   # GET /ideas.json
+  
+  before_filter :login_required
+
   def index
-    @ideas = Idea.all
+    @ideas = current_user.ideas
 
     respond_to do |format|
       format.html # index.html.erb

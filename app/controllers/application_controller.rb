@@ -15,5 +15,13 @@ class ApplicationController < ActionController::Base
   def login_required
     redirect_to new_user_session_path, notice: "You need to sign in " and return false unless current_user
   end
+  
+  def index
+  if params[:tag]
+    @articles = Article.tagged_with(params[:tag])
+  else
+    @articles = Article.all
+  end
+end
 
 end

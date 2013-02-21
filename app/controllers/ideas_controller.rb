@@ -11,9 +11,11 @@ class IdeasController < ApplicationController
   load_and_authorize_resource
   
   def index
-    #debugger
-    @ideas = current_user.ideas
-
+    if params[:tag]
+      @ideas = current_user.ideas.tagged_with(params[:tag])
+    else
+      @ideas = current_user.ideas.all
+    end
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @ideas }

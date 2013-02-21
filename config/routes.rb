@@ -3,6 +3,7 @@ Ideas::Application.routes.draw do
 
   resources :ideas
 
+  get 'tags/:tag', to: 'ideas#index', as: :tag
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

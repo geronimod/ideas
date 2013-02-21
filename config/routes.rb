@@ -2,7 +2,7 @@ Ideas::Application.routes.draw do
   devise_for :users
 
 
-  get 'tags/:tag', to: 'ideas#index', as: :tag
+  get 'tags/:tag', to: 'ideas#all', as: :tag
   resources :ideas do
       collection do
         get "all"

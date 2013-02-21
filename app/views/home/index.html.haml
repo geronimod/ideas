@@ -25,11 +25,19 @@
   - if @recent_ideas.any?
     .hrd
 
+
     %h2 Recent ideas
     %ul.recent-ideas.icons
+      #tag_cloud
+      Tags: 
+      - tag_cloud Idea.tag_counts, %w[s m l] do |tag, css_class|
+        = link_to tag.name, tag_path(tag.name), class: css_class
       - @recent_ideas.each do |idea|
         %li
           %i.icon-lightbulb
           = "« " + truncate(idea.content, length: 50) + " »"
           by
           = idea.user.email
+
+      %li 
+        =link_to "Show all",  all_ideas_path

@@ -1,8 +1,13 @@
 Ideas::Application.routes.draw do
   devise_for :users
 
-  resources :ideas
 
+  get 'tags/:tag', to: 'ideas#all', as: :tag
+  resources :ideas do
+      collection do
+        get "all"
+      end
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -2,10 +2,19 @@ class IdeasController < ApplicationController
   # GET /ideas
   # GET /ideas.json
   
-  before_filter :authenticate_user!
+  before_filter :login_required, only: [:new, :create, :edit, :update, :destroy]
+
+  #Authentication
+  before_filter :authenticate_user!, except: "all"
+    
+  #loading @ideas
+  before_filter :load_resource 
+  
+  #Authorization
+  load_and_authorize_resource except: "all"
   
   def index
-    @ideas = current_user.ideas
+   #@ideas = current_user.ideas
 
     respond_to do |format|
       format.html # index.html.erb
@@ -16,7 +25,7 @@ class IdeasController < ApplicationController
   # GET /ideas/1
   # GET /ideas/1.json
   def show
-    @idea = Idea.find(params[:id])
+    
 
     respond_to do |format|
       format.html # show.html.erb
@@ -27,7 +36,7 @@ class IdeasController < ApplicationController
   # GET /ideas/new
   # GET /ideas/new.json
   def new
-    @idea = Idea.new
+   
 
     respond_to do |format|
       format.html # new.html.erb
@@ -37,13 +46,13 @@ class IdeasController < ApplicationController
 
   # GET /ideas/1/edit
   def edit
-    @idea = Idea.find(params[:id])
+   
   end
 
   # POST /ideas
   # POST /ideas.json
   def create
-    @idea = Idea.new(params[:idea])
+   
     @idea.user = current_user
     
     respond_to do |format|
@@ -60,7 +69,7 @@ class IdeasController < ApplicationController
   # PUT /ideas/1
   # PUT /ideas/1.json
   def update
-    @idea = Idea.find(params[:id])
+   
 
     respond_to do |format|
       if @idea.update_attributes(params[:idea])
@@ -76,7 +85,7 @@ class IdeasController < ApplicationController
   # DELETE /ideas/1
   # DELETE /ideas/1.json
   def destroy
-    @idea = Idea.find(params[:id])
+  
     @idea.destroy
 
     respond_to do |format|
@@ -84,4 +93,23 @@ class IdeasController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  
+  def all
+    if params[:tag]
+      @ideas = Idea.tagged_with(params[:tag])
+    else
+      @ideas = Idea.all
+    end
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @ideas }
+    end
+  end
+  
+  private
+  def load_resource
+    @ideas = current_user.ideas if current_user
+  end
+  
 end

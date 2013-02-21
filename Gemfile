@@ -11,6 +11,9 @@ gem 'sqlite3'
 # authentication system
 gem 'devise'
 
+# authorization system
+gem 'cancan'
+
 # template engine and styles
 gem 'haml-rails'
 gem 'font-awesome-rails'

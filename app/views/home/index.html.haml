@@ -41,7 +41,10 @@
 
     - if Idea.tag_counts.any?
       .hrd
-      %h2 Tag Cloud
+      %h2 
+        Tag
+        %i.icon-cloud.icon-2x
+
       #tag_cloud
         - tag_cloud Idea.tag_counts, %w[s m l] do |tag, css_class|
           = link_to tag.name, tag_path(tag.name), class: css_class

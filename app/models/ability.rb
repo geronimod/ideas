@@ -8,5 +8,8 @@ class Ability
      can :update, Idea do |idea|
        idea.user == user
      end
+     can :destroy, Idea do |idea|
+       idea.user == user
+     end
   end
 end

@@ -15,6 +15,7 @@ class IdeasController < ApplicationController
   
   def index
    #@ideas = current_user.ideas
+   @title = "Your ideas"
 
     respond_to do |format|
       format.html # index.html.erb
@@ -97,12 +98,14 @@ class IdeasController < ApplicationController
   
   def all
     if params[:tag]
+      @title = "Ideas tagged by '#{params[:tag]}'"
       @ideas = Idea.tagged_with(params[:tag])
     else
+      @title = "Ideas"
       @ideas = Idea.all
     end
     respond_to do |format|
-      format.html # show.html.erb
+      format.html { render action: :index }
       format.json { render json: @ideas }
     end
   end

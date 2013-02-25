@@ -98,7 +98,7 @@ class IdeasController < ApplicationController
   
   def all
     if params[:tag]
-      @title = "Ideas tagged by '#{params[:tag]}'"
+      @title = "Ideas tagged by &ldquo;#{params[:tag]}&rdquo;".html_safe
       @ideas = Idea.tagged_with(params[:tag])
     else
       @title = "Ideas"

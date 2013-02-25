@@ -2,15 +2,22 @@
   Sign in
   
 = form_for(resource, :as => resource_name, :url => session_path(resource_name), html:{ class: "form-horizontal"}) do |f|
-  %div.control-group
-    = f.label :email,class:'control-label' 
-    %div.controls 
-      = f.email_field :email, :autofocus => true
 
   %div.control-group
-    = f.label :password,class:'control-label' 
+    =# f.label :email, class: 'control-label' 
     %div.controls
-      = f.password_field :password 
+      .input-prepend
+        %span.add-on
+          %i.icon-envelope
+        = f.email_field :email, autofocus: true, placeholder: 'Email address'
+
+  %div.control-group
+    =# f.label :password,class:'control-label' 
+    %div.controls
+      .input-prepend
+        %span.add-on
+          %i.icon-key
+        = f.password_field :password, placeholder: 'Password'
 
   -if devise_mapping.rememberable?
     %div.control-group
@@ -19,5 +26,5 @@
   
   %div.control-group
     %div.controls
-      = f.submit "Sign in", class:'btn'
+      = f.submit "Sign in", class: 'btn btn-primary'
    

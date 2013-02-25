@@ -128,3 +128,9 @@ textarea {
   .m { font-size: 1.2em; }
   .l { font-size: 1.8em; }
 }
+
+.input-prepend {
+  .field_with_errors {
+    display: inline
+  }
+}

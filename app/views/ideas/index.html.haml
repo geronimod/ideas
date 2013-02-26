@@ -11,7 +11,7 @@
     %tr
       %td= idea.content
       - if controller.action_name == 'all'
-        %td= idea.user.email
+        %td= idea.user.try :email
       %td
         - if can? :destroy, idea
           = link_to '<i class="icon-trash"></i>'.html_safe, idea, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger pull-right'

@@ -21,10 +21,19 @@
 
   -if devise_mapping.rememberable?
     %div.control-group
-      = f.check_box :remember_me, class:"checkbox"
-      = f.label :remember_me, class:'checkbox'
+      %div.controls
+        %label.checkbox
+          = f.check_box :remember_me, class:"checkbox"
+          = f.label :remember_me, class:'checkbox'
   
   %div.control-group
     %div.controls
       = f.submit "Sign in", class: 'btn btn-primary'
+      
+  %div.control-group
+    %div.controls
+      %ul.unstyled
+        %li
+          =link_to "Forgot your password?", edit_user_password_path
+      
    

@@ -23,6 +23,7 @@ describe IdeasController do
     describe "GET #index" do
       it "should respond successfully with an HTTP 200 status code" do
         get :index
+        debugger
         expect(response).to be_success
         expect(response.code).to eq('200')
       end

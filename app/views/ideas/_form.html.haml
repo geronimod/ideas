@@ -1,16 +1,8 @@
 %h1 Content
 
 = form_for(@idea) do |f|
-  - if @idea.errors.any?
-    #error_explanation
-      %h2
-        = pluralize(@idea.errors.count, "error")  
-        prohibited this idea from being saved:
+  = error_messages! :idea
 
-      %ul
-      - @idea.errors.full_messages.each do |msg| 
-        %li= msg
-        
   .field
     = f.text_area :content, rows: 7
   .field 
@@ -18,9 +10,11 @@
     = f.text_field :tag_list, class: 'input-xlarge select2', style: 'width:300px'
   %br
   .actions
-    = f.submit 
+    = f.submit class: 'btn btn-primary'
 
-:javascript
-  $(".select2").select2({
-    tags: #{all_tags.map(&:name)}
-  });
+
+- content_for :scripts do
+  :javascript
+    $(".select2").select2({
+      tags: #{all_tags.map(&:name)}
+    });

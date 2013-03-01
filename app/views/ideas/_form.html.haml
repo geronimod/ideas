@@ -10,13 +10,17 @@
       %ul
       - @idea.errors.full_messages.each do |msg| 
         %li= msg
-       
-
+        
   .field
     = f.text_area :content, rows: 7
   .field 
-    = f.label :tag_list, "Tags (separated by commas)"
-    =f.text_field :tag_list
-
+    = f.label :tag_list, "Tags"
+    = f.text_field :tag_list, class: 'input-xlarge select2', style: 'width:300px'
+  %br
   .actions
     = f.submit 
+
+:javascript
+  $(".select2").select2({
+    tags: #{all_tags.map(&:name)}
+  });

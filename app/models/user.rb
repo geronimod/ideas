@@ -10,6 +10,5 @@ class User < ActiveRecord::Base
   # attr_accessible :title, :body, :remember_me
 
   has_many :ideas, :dependent => :destroy
-
    
 end

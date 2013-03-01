@@ -6,10 +6,10 @@ describe IdeasController do
 
   describe "without authentication" do
     describe "GET #index" do
-      xit "should redirect to sign_in" do
+      it "should redirect to sign_in" do
         get :index
-        expect(response).to be_success
-        expect(response.code).to eq('301')
+        expect(response).to redirect_to(new_user_session_path)
+        expect(response.code).to eq('302')
       end
     end
   end
@@ -33,11 +33,12 @@ describe IdeasController do
       end
 
       it "should load @ideas" do
-        idea1, idea2 = Idea.create!(content: 'idea1'), Idea.create!(content: 'idea2')
+        idea1 = Idea.new content:"idea1" 
+        idea2 = Idea.new content:"idea2" 
         idea1.user = idea2.user = @user
         idea1.save
         idea2.save
-
+        
         get :index
 
         expect(assigns(:ideas)).to match_array([idea1, idea2])

@@ -1,0 +1,48 @@
+require "spec_helper"
+require 'ruby-debug'
+
+describe IdeasController do
+  include Devise::TestHelpers
+
+  describe "without authentication" do
+    describe "GET #index" do
+      xit "should redirect to sign_in" do
+        get :index
+        expect(response).to be_success
+        expect(response.code).to eq('301')
+      end
+    end
+  end
+
+  describe "with authentication" do
+    before :each do
+      @user = User.create!(email: 'test@gmail.com', password: 'test')
+      sign_in @user
+    end
+
+    describe "GET #index" do
+      it "should respond successfully with an HTTP 200 status code" do
+        get :index
+        expect(response).to be_success
+        expect(response.code).to eq('200')
+      end
+
+      it "should render the index template" do
+        get :index
+        expect(response).to render_template("index")
+      end
+
+      it "should load @ideas" do
+        idea1, idea2 = Idea.create!(content: 'idea1'), Idea.create!(content: 'idea2')
+        idea1.user = idea2.user = @user
+        idea1.save
+        idea2.save
+
+        get :index
+
+        expect(assigns(:ideas)).to match_array([idea1, idea2])
+      end
+    end
+
+  end
+end

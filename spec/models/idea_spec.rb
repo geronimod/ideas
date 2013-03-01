@@ -9,4 +9,12 @@ describe Idea do
     expect(idea.errors.size).to eq(1)
     expect(idea.errors[:content]).to eq(["can't be blank"])
   end
+
+  it "should validate if the idea had the proper tag" do
+    idea = Idea.new tag_list: "tag1, tag2, tag3", content: "algo"
+    idea.save
+    #debugger
+    expect(idea.tag_list).to eq(["tag1", "tag2", "tag3"])
+    expect(idea.tags.size).to eq(3)
+  end
 end

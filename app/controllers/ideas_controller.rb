@@ -2,8 +2,6 @@ class IdeasController < ApplicationController
   # GET /ideas
   # GET /ideas.json
   
-  before_filter :login_required, only: [:new, :create, :edit, :update, :destroy]
-
   #Authentication
   before_filter :authenticate_user!, except: "all"
     

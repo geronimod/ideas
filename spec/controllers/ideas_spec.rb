@@ -34,15 +34,22 @@ describe IdeasController do
 
       it "should load @ideas" do
         idea1, idea2 = Idea.create!(content: 'idea1'), Idea.create!(content: 'idea2')
+        puts @user.inspect
         idea1.user = idea2.user = @user
         idea1.save
         idea2.save
-
         get :index
-
         expect(assigns(:ideas)).to match_array([idea1, idea2])
       end
+      
+      it "should appear both buttons for delete and edit" do
+        idea1 = Idea.create!(content: 'idea1')
+        idea1.user = @user
+        idea.save
+        get :index
+        expect(response.body).to include edit_idea_path(@idea1)
+        expect(response.body).to include delete_idea_path(@idea1)
+      end
     end
-
   end
 end

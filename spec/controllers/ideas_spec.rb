@@ -44,6 +44,16 @@ describe IdeasController do
         expect(assigns(:ideas)).to match_array([idea1, idea2])
       end
     end
-
+    describe "POST #create" do
+      it "should respond successfully with an HTTP 200 status code (Create idea page)" do
+        post :create
+        expect(response).to be_success
+        expect(response.code).to eq('200')
+      end
+      it "should create an idea and redirect to de index" do
+        post :create, content:'idea1'
+        expect(response).to redirect_to('ideas_path')
+      end
+    end
   end
 end

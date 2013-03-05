@@ -142,3 +142,7 @@ textarea {
     display: inline
   }
 }
+
+table tr td:first-child {
+  max-width: 400px;
+}

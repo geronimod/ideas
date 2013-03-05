@@ -68,8 +68,6 @@ class IdeasController < ApplicationController
   # PUT /ideas/1
   # PUT /ideas/1.json
   def update
-   
-
     respond_to do |format|
       if @idea.update_attributes(params[:idea])
         format.html { redirect_to ideas_url, notice: 'Idea was successfully updated.' }

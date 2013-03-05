@@ -36,12 +36,13 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-group :development do
-  gem 'debugger'
-end
-
 group :test, :development do
+  gem 'debugger'
+  gem "capybara"
   gem "rspec-rails", "~> 2.0"
+  gem "launchy"
+  gem "database_cleaner"
+  gem "factory_girl"
 end
 
 # To use ActiveModel has_secure_password

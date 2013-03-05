@@ -1,3 +1,7 @@
+hr {
+  border-top: 1px solid rgb(214, 214, 214);
+}
+
 .container-narrow {
   margin: 0 auto;
   max-width: 700px;
@@ -122,11 +126,15 @@ textarea {
 }
 
 #tag_cloud {
-  width: 400px;
   line-height: 1.6em;
   .s { font-size: 0.8em; }
   .m { font-size: 1.2em; }
   .l { font-size: 1.8em; }
+}
+
+.icon-cloud { 
+  color: rgb(101, 139, 175);
+  text-shadow: 2px 2px 4px black;
 }
 
 .input-prepend {

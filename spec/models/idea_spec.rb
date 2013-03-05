@@ -24,6 +24,7 @@ describe Idea do
     user = User.create email:"pepe@mail.com", password:"1234" 
     idea = Idea.new content:"idea" 
     idea.user = user
+    idea.save
     expect(idea.user).to eq(user)
   end
 end

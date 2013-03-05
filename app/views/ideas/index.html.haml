@@ -14,9 +14,9 @@
         %td= idea.user.try :email
       %td
         - if can? :destroy, idea
-          = link_to '<i class="icon-trash"></i>'.html_safe, idea, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger pull-right'
+          = link_to '<i class="icon-trash"></i>'.html_safe, idea, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger pull-right action-destroy'
         - if can? :update, idea   
-          = link_to '<i class="icon-edit"></i>'.html_safe, edit_idea_path(idea), class: 'btn pull-right', style: 'margin-right: 5px'
+          = link_to '<i class="icon-edit"></i>'.html_safe, edit_idea_path(idea), class: 'btn pull-right action-edit', style: 'margin-right: 5px'
 
   
 %br

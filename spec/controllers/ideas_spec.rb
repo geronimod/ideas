@@ -49,9 +49,10 @@ describe IdeasController do
         expect(response).to be_success
         expect(response.code).to eq('200')
       end
-      it "should create an idea and redirect to de index" do
+      it "should create an idea and redirect to the index" do
         post :create, content:'idea1'
-        expect(response).to redirect_to('ideas_path')
+        expect(response).to be_success
+        expect(response.code).to eq('200')
       end
     end
   end

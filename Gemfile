@@ -43,6 +43,7 @@ group :test, :development do
   gem "launchy"
   gem "database_cleaner"
   gem "factory_girl"
+  gem "capybara-webkit"
 end
 
 # To use ActiveModel has_secure_password

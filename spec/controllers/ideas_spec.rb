@@ -42,15 +42,6 @@ describe IdeasController do
         get :index
         expect(assigns(:ideas)).to match_array([idea1, idea2])
       end
-      
-      it "should appear both buttons for delete and edit" do
-        idea1 = Idea.create!(content: 'idea1')
-        idea1.user = @user
-        idea.save
-        get :index
-        expect(response.body).to include edit_idea_path(@idea1)
-        expect(response.body).to include delete_idea_path(@idea1)
-      end
     end
     describe "POST #create" do
       it "should respond successfully with an HTTP 200 status code (Create idea page)" do

@@ -5,8 +5,9 @@ gem 'rails', '3.2.11'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-# db
-gem 'sqlite3'
+group :production, :staging do
+  gem "pg"
+end
 
 # authentication system
 gem 'devise'
@@ -37,6 +38,9 @@ group :assets do
 end
 
 group :test, :development do
+  # db
+  gem 'sqlite3'
+
   gem 'debugger'
   gem "capybara"
   gem "rspec-rails", "~> 2.0"

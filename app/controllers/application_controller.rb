@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+ 
   protect_from_forgery
 
   rescue_from CanCan::AccessDenied do |exception|
@@ -11,6 +12,7 @@ class ApplicationController < ActionController::Base
     rescue_from ActiveRecord::RecordNotFound, 
                 ActionController::RoutingError, with: :render_404 
   end
+
 
   def after_sign_in_path_for(resource)
     ideas_path

@@ -1,7 +1,7 @@
 languaje: ruby
 rvm:
-	- 1.9.3
-	- rbx-19mode
+  - 1.9.3
+  - rbx-19mode
 env:
   - DB=sqlite
 script: 

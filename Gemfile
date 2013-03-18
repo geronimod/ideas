@@ -39,6 +39,7 @@ end
 
 group :test, :development do
   # db
+  gem 'ci_reporter'
   gem 'sqlite3'
   gem 'rake'
   gem 'debugger'

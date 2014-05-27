@@ -195,7 +195,7 @@ DEPENDENCIES
   acts-as-taggable-on (~> 2.3.1)
   cancan
   capybara
-  capybara-webkit
+  capybara-webkit (= 0.14.2)
   ci_reporter
   coffee-rails (~> 3.2.1)
   database_cleaner
@@ -206,7 +206,7 @@ DEPENDENCIES
   haml-rails
   jquery-rails
   launchy
-  pg
+  pg (= 0.14.1)
   rails (= 3.2.11)
   rake
   rspec-rails (~> 2.0)

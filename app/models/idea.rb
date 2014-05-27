@@ -1,7 +1,7 @@
 class Idea < ActiveRecord::Base
   acts_as_taggable
 
-  attr_accessible :content, :tag_list
+  attr_accessible :content, :tag_list, :title, :innovation, :performance, :culture
 
   belongs_to :user
 

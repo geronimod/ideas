@@ -1,16 +1,30 @@
-%h1 Content
+%h1 Take a moment to write down your idea
+%hr
 
 = form_for(@idea) do |f|
   = error_messages! :idea
 
+  %h3 Area in which the idea will take effect
+
   .field
+    = f.label :innovation, "Innovation"
+    = f.check_box :innovation
+    = f.label :performance, "Performance"
+    = f.check_box :performance
+    = f.label :culture, "Culture"
+    = f.check_box :culture
+
+  .field
+    = f.label :title, "Idea's title"
+    = f.text_field :title, class: 'input-xlarge select2', style: 'width:300px'
+  
+  .field
+    = f.label :content, "Description"
     = f.text_area :content, rows: 7
-  .field 
-    = f.label :tag_list, "Tags"
-    = f.text_field :tag_list, class: 'input-xlarge select2', style: 'width:300px'
+
   %br
   .actions
-    = f.submit class: 'btn btn-primary'
+    = f.submit "Submit", class: 'btn btn-primary'
 
 
 - content_for :scripts do

@@ -36,6 +36,8 @@ class IdeasController < ApplicationController
   # GET /ideas/new.json
   def new
    
+    @list_users = User.all
+    @list_users.delete(current_user)
 
     respond_to do |format|
       format.html # new.html.erb
@@ -51,9 +53,14 @@ class IdeasController < ApplicationController
   # POST /ideas
   # POST /ideas.json
   def create
-   
-    @idea.user = current_user
-    
+    @list_users = User.all
+    # @idea.user = current_user
+    @idea = Idea.new(params[:idea])
+    @users = User.where(:id => params[:organizing_team])
+    @users << current_user
+    @users << User.where(:email=>"cbel@devspark.com")
+    @idea.users << @users 
+    UserMailer.welcome_email(@idea).deliver
     respond_to do |format|
       if @idea.save
         format.html { redirect_to ideas_url, notice: 'Idea was successfully created.' }
@@ -68,6 +75,12 @@ class IdeasController < ApplicationController
   # PUT /ideas/1
   # PUT /ideas/1.json
   def update
+
+    @idea = Idea.find(params[:id])
+    @users = User.where(:id => params[:organizing_team])
+    @idea.users.destroy_all  
+    @idea.users << @users 
+
     respond_to do |format|
       if @idea.update_attributes(params[:idea])
         format.html { redirect_to ideas_url, notice: 'Idea was successfully updated.' }

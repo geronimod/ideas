@@ -22,6 +22,22 @@
     = f.label :content, "Description"
     = f.text_area :content, rows: 7
 
+  .field
+    = f.label :cost, "Idea's cost"
+    = f.text_field :cost, class: 'input-xlarge select2', style: 'width:300px'
+    
+  .field
+    = f.label :time, "Idea's time"
+    = f.text_field :time, class: 'input-xlarge select2', style: 'width:300px'
+
+  .field
+    = f.label :benefits, "Idea's benefits"
+    = f.text_field :benefits, class: 'input-xlarge select2', style: 'width:300px'
+
+  .field
+    = f.label :users 
+    = select_tag "organizing_team", options_from_collection_for_select(@list_users, 'id', 'email',@idea.users.map{ |j| j.id }), :multiple => true
+
   %br
   .actions
     = f.submit "Submit", class: 'btn btn-primary'

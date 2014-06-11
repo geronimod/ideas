@@ -6,10 +6,10 @@ class Ability
      can :read, :all
      can :create, Idea
      can :update, Idea do |idea|
-       idea.user == user
+       idea.users == user
      end
      can :destroy, Idea do |idea|
-       idea.user == user
+       idea.users == user
      end
   end
 end

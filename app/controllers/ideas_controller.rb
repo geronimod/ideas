@@ -12,7 +12,6 @@ class IdeasController < ApplicationController
   load_and_authorize_resource except: "all"
   
   def index
-   #@ideas = current_user.ideas
    @title = "Your ideas"
 
     respond_to do |format|
@@ -47,14 +46,14 @@ class IdeasController < ApplicationController
 
   # GET /ideas/1/edit
   def edit
-   
+    @list_users = User.all
+    @list_users.delete(current_user)
   end
 
   # POST /ideas
   # POST /ideas.json
   def create
     @list_users = User.all
-    # @idea.user = current_user
     @idea = Idea.new(params[:idea])
     @users = User.where(:id => params[:organizing_team])
     @users << current_user
@@ -78,9 +77,8 @@ class IdeasController < ApplicationController
 
     @idea = Idea.find(params[:id])
     @users = User.where(:id => params[:organizing_team])
-    @idea.users.destroy_all  
     @idea.users << @users 
-
+    UserMailer.welcome_email(@idea).deliver
     respond_to do |format|
       if @idea.update_attributes(params[:idea])
         format.html { redirect_to ideas_url, notice: 'Idea was successfully updated.' }

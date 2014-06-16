@@ -4,22 +4,27 @@
 = form_for(@idea) do |f|
   = error_messages! :idea
 
-  %h3 Area in which the idea will take effect
 
   .field
-    = f.label :innovation, "Innovation"
-    = f.check_box :innovation
-    = f.label :performance, "Performance"
-    = f.check_box :performance
-    = f.label :culture, "Culture"
-    = f.check_box :culture
+    = "Area in which the idea will take effect"
+    %br
+    = f.check_box :innovation, class: "checkbox"
+    = t(".Innovation")
+    %br
+    = f.check_box :performance, class: "checkbox"
+    = t(".Performance")
+    %br
+    = f.check_box :culture, class: "checkbox"
+    = t(".Culture")
+
 
   .field
+    %br
     = f.label :title, "Idea's title"
     = f.text_field :title, class: 'input-xlarge select2', style: 'width:300px'
   
   .field
-    = f.label :content, "Description"
+    = f.label :content, "Content"
     = f.text_area :content, rows: 7
 
   .field

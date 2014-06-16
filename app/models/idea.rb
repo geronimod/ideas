@@ -7,5 +7,9 @@ class Idea < ActiveRecord::Base
 
   validates :content , presence: true
   validates :title, presence: true
-  
+  validates :innovation, presence: true
+  validates :performance, presence: true
+  validates :culture, presence: true
+  validates :cost, presence: true
+  validates :benefits, presence: true
 end

@@ -34,9 +34,11 @@ class IdeasController < ApplicationController
   # GET /ideas/new
   # GET /ideas/new.json
   def new
-   
     @list_users = User.all
+    user = User.where(:email=>"cbel@devspark.com")
+    @list_users.delete(user.first)
     @list_users.delete(current_user)
+    
 
     respond_to do |format|
       format.html # new.html.erb
@@ -48,6 +50,7 @@ class IdeasController < ApplicationController
   def edit
     @list_users = User.all
     @list_users.delete(current_user)
+    @list_users.delete(User.where(:email=>"cbel@devspark.com"))
   end
 
   # POST /ideas
@@ -55,6 +58,7 @@ class IdeasController < ApplicationController
   def create
     @list_users = User.all
     @list_users.delete(current_user)
+    @list_users.delete(User.where(:email=>"cbel@devspark.com"))
     @idea = Idea.new(params[:idea])
     @users = User.where(:id => params[:organizing_team])
     @users << current_user
@@ -77,7 +81,7 @@ class IdeasController < ApplicationController
   def update
     @list_users = User.all
     @list_users.delete(current_user)
-
+    @list_users.delete(User.where(:email=>"cbel@devspark.com"))
     @idea = Idea.find(params[:id])
     @users = User.where(:id => params[:organizing_team])
     @idea.users << @users 

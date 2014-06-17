@@ -77,7 +77,7 @@ Ideas::Application.configure do
     domain: "gmail.com",
     authentication: :plain,
     enable_starttls_auto: true,
-    user_name: "malic2003@gmail.com", # this should be a real gmail id
-    password: "4Rg3nt1n4" # this should be real password of your gmail id
+    user_name: "jmohamed@devspark.com", # this should be a real gmail id
+    password: "fantastico22" # this should be real password of your gmail id
   }
 end
